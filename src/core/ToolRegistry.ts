@@ -66,12 +66,18 @@ export class ToolRegistry {
   }
 
   private generateToolId(tool: ToolDefinition): string {
-    const parts = [tool.category];
-    if (tool.subcategory) {
-      parts.push(tool.subcategory);
+    // For examples category, use the old format
+    if (tool.category === 'examples') {
+      const parts = [tool.category];
+      if (tool.subcategory) {
+        parts.push(tool.subcategory);
+      }
+      parts.push(tool.name);
+      return parts.join('_');
     }
-    parts.push(tool.name);
-    return parts.join('_');
+    
+    // For other categories, use category_toolname format
+    return `${tool.category}_${tool.name}`;
   }
 
   getTool(toolId: string): ToolDefinition | undefined {
