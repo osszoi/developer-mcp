@@ -1,184 +1,86 @@
-# Developer MCP Server
+# Developer MCP Collection
 
-A modular Model Context Protocol (MCP) server designed for developers, with organized tools for Git, Docker, and various development utilities.
+A collection of Model Context Protocol (MCP) servers for developer tools.
 
-## Project Structure
+## Available MCP Servers
 
-```
-developer-mcp/
-├── src/
-│   ├── core/
-│   │   └── ToolRegistry.ts      # Dynamic tool loading and registration
-│   ├── tools/
-│   │   ├── examples/
-│   │   │   └── test/
-│   │   │       └── hello_world.ts
-│   │   ├── git/                 # Git-related tools
-│   │   │   ├── repository/      # Repository management
-│   │   │   ├── commits/         # Commit operations
-│   │   │   └── branches/        # Branch management
-│   │   ├── docker/              # Docker tools
-│   │   │   ├── containers/      # Container operations
-│   │   │   ├── images/          # Image management
-│   │   │   └── compose/         # Docker Compose operations
-│   │   └── utilities/           # General utilities
-│   │       ├── file/            # File operations
-│   │       └── system/          # System utilities
-│   ├── types/
-│   │   ├── index.ts
-│   │   └── tool.ts             # TypeScript interfaces
-│   ├── utils/                   # Utility functions
-│   └── index.ts                 # Main server entry point
-├── scripts/                     # Build and utility scripts
-├── docs/                        # Documentation
-├── tests/                       # Test files
-├── package.json
-├── tsconfig.json
-└── README.md
-```
+### 🐳 Docker MCP
+Location: `./docker-mcp/`
 
-## Architecture
+Provides 10 Docker tools for container and image management:
+- Container operations (ps, run, stop, remove, logs, exec)
+- Image operations (images, pull, build)
+- Docker Compose support
 
-### Modular Tool System
+[See Docker MCP README](./docker-mcp/README.md)
 
-The server uses a modular architecture where tools are:
-- Organized by category and subcategory
-- Dynamically loaded at runtime
-- Self-contained with their own schemas and handlers
-- Easily extensible without modifying core code
+### 🔧 Git MCP
+Location: `./git-mcp/`
 
-### Tool Categories
+Provides 19 Git tools for version control:
+- Repository operations (status, diff, add, clone, pull, push)
+- Commit operations (log, show, commit)
+- Branch operations (branch, checkout, merge, rebase)
 
-1. **Examples** - Demonstration tools
-   - `test/` - Test examples like hello_world
+[See Git MCP README](./git-mcp/README.md)
 
-2. **Git** - Version control tools (planned)
-   - `repository/` - Repository management
-   - `commits/` - Commit operations
-   - `branches/` - Branch management
+## Installation
 
-3. **Docker** - Container management (planned)
-   - `containers/` - Container operations
-   - `images/` - Image management
-   - `compose/` - Docker Compose operations
-
-4. **Utilities** - General tools (planned)
-   - `file/` - File operations
-   - `system/` - System utilities
-
-## Creating New Tools
-
-To add a new tool:
-
-1. Create a TypeScript file in the appropriate category/subcategory folder
-2. Implement the `ToolDefinition` interface:
-
-```typescript
-import { z } from 'zod';
-import { ToolDefinition } from '../../../types/index.js';
-
-const inputSchema = z.object({
-  // Define your input schema
-});
-
-const myTool: ToolDefinition = {
-  name: 'my_tool',
-  description: 'What this tool does',
-  category: 'category_name',
-  subcategory: 'subcategory_name',  // optional
-  version: '1.0.0',
-  inputSchema,
-  
-  handler: async (input) => {
-    // Tool implementation
-    return {
-      content: [{
-        type: 'text',
-        text: 'Result'
-      }]
-    };
-  }
-};
-
-export default myTool;
-```
-
-3. The tool will be automatically loaded when the server starts
-
-## Development
-
-### Setup
+Each MCP server is independent. Navigate to the desired server directory and:
 
 ```bash
+cd docker-mcp  # or git-mcp
 npm install
-```
-
-### Build
-
-```bash
 npm run build
 ```
 
-### Development Mode
+## Configuration
 
-```bash
-npm run dev  # Watches for changes
-```
+Add the desired servers to your `~/.cursor/mcp.json`:
 
-### Running the Server
-
-```bash
-npm start
-# or
-node build/index.js
-```
-
-## Tool Naming Convention
-
-Tools are automatically assigned IDs based on their location:
-- `category_toolname` for root-level tools
-- `category_subcategory_toolname` for subcategory tools
-
-Example: The hello_world tool in `examples/test/` becomes `examples_test_hello_world`
-
-## Example Usage
-
-The included `hello_world` tool demonstrates:
-- Input validation with Zod schemas
-- Optional parameters with defaults
-- Multiple response types
-- Proper tool structure
-
-```typescript
-// Input
+```json
 {
-  "name": "Developer",
-  "language": "es"
-}
-
-// Output
-{
-  "content": [
-    {
-      "type": "text",
-      "text": "¡Hola, Developer!"
+  "mcpServers": {
+    "docker-mcp": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/docker-mcp/build/index.js"
+      ]
     },
-    {
-      "type": "text", 
-      "text": "\nThis is an example tool from the examples/test category."
+    "git-mcp": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/git-mcp/build/index.js"
+      ]
     }
-  ]
+  }
 }
 ```
 
-## Future Development
+## Structure
 
-This structure is designed to easily accommodate:
-- Git integration tools
-- Docker management tools
-- File system utilities
-- Database tools
-- API testing tools
-- And much more!
+```
+developer-mcp/
+├── docker-mcp/          # Docker tools MCP server
+│   ├── src/
+│   ├── build/
+│   ├── package.json
+│   └── README.md
+├── git-mcp/             # Git tools MCP server
+│   ├── src/
+│   ├── build/
+│   ├── package.json
+│   └── README.md
+└── README.md            # This file
+```
 
-Each category can have its own shared utilities and subcategories for better organization.
+## Future MCP Servers
+
+This structure allows easy addition of new domain-specific MCP servers:
+- `npm-mcp` - NPM/Node.js package management
+- `python-mcp` - Python/pip tools
+- `k8s-mcp` - Kubernetes tools
+- `aws-mcp` - AWS CLI tools
+- etc.
+
+Each server remains independent and can be enabled/disabled as needed in Cursor.
