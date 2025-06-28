@@ -1,0 +1,33 @@
+{
+  "name": "git-mcp",
+  "version": "1.0.0",
+  "description": "Git tools for MCP (Model Context Protocol)",
+  "type": "module",
+  "main": "./build/index.js",
+  "bin": {
+    "git-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsc --watch",
+    "clean": "rm -rf build",
+    "prebuild": "npm run clean"
+  },
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "git",
+    "version-control"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}
