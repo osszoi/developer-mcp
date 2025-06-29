@@ -1,0 +1,35 @@
+{
+  "name": "mysql-mcp",
+  "version": "1.0.0",
+  "description": "MySQL read-only tools for MCP (Model Context Protocol)",
+  "type": "module",
+  "main": "./build/index.js",
+  "bin": {
+    "mysql-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsc --watch",
+    "clean": "rm -rf build",
+    "prebuild": "npm run clean"
+  },
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "mysql",
+    "database"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "mysql2": "^3.11.5",
+    "zod": "^3.24.2",
+    "zod-to-json-schema": "^3.24.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}
