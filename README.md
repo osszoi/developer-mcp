@@ -24,12 +24,22 @@ Provides 19 Git tools for version control:
 
 [See Git MCP README](./git-mcp/README.md)
 
+### 🗄️ MySQL MCP
+Location: `./mysql-mcp/`
+
+Provides 8 MySQL database tools:
+- Read operations (databases, tables, columns, describe, query, count)
+- Write operations (update, delete) with safety features
+- Connection via environment variables in mcp.json
+
+[See MySQL MCP README](./mysql-mcp/README.md)
+
 ## Installation
 
 Each MCP server is independent. Navigate to the desired server directory and:
 
 ```bash
-cd docker-mcp  # or git-mcp
+cd docker-mcp  # or git-mcp or mysql-mcp
 npm install
 npm run build
 ```
@@ -52,6 +62,18 @@ Add the desired servers to your `~/.cursor/mcp.json`:
       "args": [
         "/absolute/path/to/git-mcp/build/index.js"
       ]
+    },
+    "mysql-mcp": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/mysql-mcp/build/index.js"
+      ],
+      "env": {
+        "MYSQL_HOST": "localhost",
+        "MYSQL_PORT": "3306",
+        "MYSQL_USER": "your_username",
+        "MYSQL_PASSWORD": "your_password"
+      }
     }
   }
 }
@@ -71,16 +93,12 @@ developer-mcp/
 │   ├── build/
 │   ├── package.json
 │   └── README.md
+├── mysql-mcp/           # MySQL tools MCP server
+│   ├── src/
+│   ├── build/
+│   ├── package.json
+│   └── README.md
 └── README.md            # This file
 ```
-
-## Future MCP Servers
-
-This structure allows easy addition of new domain-specific MCP servers:
-- `npm-mcp` - NPM/Node.js package management
-- `python-mcp` - Python/pip tools
-- `k8s-mcp` - Kubernetes tools
-- `aws-mcp` - AWS CLI tools
-- etc.
 
 Each server remains independent and can be enabled/disabled as needed in Cursor.
