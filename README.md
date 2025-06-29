@@ -34,12 +34,24 @@ Provides 8 MySQL database tools:
 
 [See MySQL MCP README](./mysql-mcp/README.md)
 
+### ☁️ GCloud MCP
+Location: `./gcloud-mcp/`
+
+Provides 20+ Google Cloud Platform tools:
+- Kubernetes/GKE operations (clusters, workloads, deployments)
+- Artifact Registry management (repositories, images, versions)
+- Cloud Storage operations (buckets, objects, metadata)
+- Cloud Logging (read, tail, query, sinks)
+- Requires gcloud CLI installed and authenticated
+
+[See GCloud MCP README](./gcloud-mcp/README.md)
+
 ## Installation
 
 Each MCP server is independent. Navigate to the desired server directory and:
 
 ```bash
-cd docker-mcp  # or git-mcp or mysql-mcp
+cd docker-mcp  # or git-mcp, mysql-mcp, gcloud-mcp
 npm install
 npm run build
 ```
@@ -74,6 +86,12 @@ Add the desired servers to your `~/.cursor/mcp.json`:
         "MYSQL_USER": "your_username",
         "MYSQL_PASSWORD": "your_password"
       }
+    },
+    "gcloud-mcp": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/gcloud-mcp/build/index.js"
+      ]
     }
   }
 }
@@ -98,6 +116,12 @@ developer-mcp/
 │   ├── build/
 │   ├── package.json
 │   └── README.md
+├── gcloud-mcp/          # Google Cloud Platform tools MCP server
+│   ├── src/
+│   ├── build/
+│   ├── package.json
+│   ├── README.md
+│   └── ROADMAP.md
 └── README.md            # This file
 ```
 
