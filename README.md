@@ -46,12 +46,23 @@ Provides 20+ Google Cloud Platform tools:
 
 [See GCloud MCP README](./gcloud-mcp/README.md)
 
+### 🐙 GitHub MCP
+Location: `./github-mcp/`
+
+Provides GitHub operations using GitHub CLI:
+- Repository listing and file retrieval
+- Pull request viewing (changes, comments)
+- Pull request interactions (post comments, code reviews)
+- Requires GitHub CLI (gh) installed and authenticated
+
+[See GitHub MCP README](./github-mcp/README.md)
+
 ## Installation
 
 Each MCP server is independent. Navigate to the desired server directory and:
 
 ```bash
-cd docker-mcp  # or git-mcp, mysql-mcp, gcloud-mcp
+cd docker-mcp  # or git-mcp, mysql-mcp, gcloud-mcp, github-mcp
 npm install
 npm run build
 ```
@@ -92,6 +103,12 @@ Add the desired servers to your `~/.cursor/mcp.json`:
       "args": [
         "/absolute/path/to/gcloud-mcp/build/index.js"
       ]
+    },
+    "github-mcp": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/github-mcp/build/index.js"
+      ]
     }
   }
 }
@@ -122,6 +139,11 @@ developer-mcp/
 │   ├── package.json
 │   ├── README.md
 │   └── ROADMAP.md
+├── github-mcp/          # GitHub CLI tools MCP server
+│   ├── src/
+│   ├── build/
+│   ├── package.json
+│   └── README.md
 └── README.md            # This file
 ```
 
