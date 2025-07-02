@@ -11,7 +11,8 @@
     "mysql-mcp",
     "gcloud-mcp",
     "github-mcp",
-    "rest-mcp"
+    "rest-mcp",
+    "jira-mcp"
   ],
   "scripts": {
     "build": "npm run build --workspaces",

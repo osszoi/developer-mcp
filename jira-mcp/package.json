@@ -1,0 +1,42 @@
+{
+  "name": "@edjl/jira-mcp",
+  "version": "1.0.0",
+  "description": "Jira tools for MCP (Model Context Protocol)",
+  "type": "module",
+  "main": "./build/index.js",
+  "bin": {
+    "jira-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsc --watch",
+    "clean": "rm -rf build",
+    "prebuild": "npm run clean",
+    "postbuild": "chmod +x build/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "jira",
+    "atlassian",
+    "issue-tracking"
+  ],
+  "author": "Eduardo Lorenzo <contact@edjl.dev>",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "axios": "^1.7.9",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "build/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

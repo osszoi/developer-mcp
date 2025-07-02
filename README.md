@@ -6,7 +6,7 @@ A collection of Model Context Protocol (MCP) servers for developer tools.
 
 ### 1. Install Tools
 ```bash
-npm install -g @edjl/docker-mcp @edjl/git-mcp @edjl/mysql-mcp @edjl/gcloud-mcp @edjl/github-mcp @edjl/rest-mcp
+npm install -g @edjl/docker-mcp @edjl/git-mcp @edjl/mysql-mcp @edjl/gcloud-mcp @edjl/github-mcp @edjl/rest-mcp @edjl/jira-mcp
 ```
 
 ### 2. Configure Your MCP Client
@@ -46,6 +46,15 @@ Add to `~/.cursor/mcp.json` (or your MCP client's config file):
       "args": [],
       "env": {
         "REST_API_AUTH_TOKEN": "Bearer your_token_here"
+      }
+    },
+    "jira-mcp": {
+      "command": "jira-mcp",
+      "args": [],
+      "env": {
+        "JIRA_BASE_URL": "https://your-domain.atlassian.net",
+        "JIRA_EMAIL": "your-email@example.com",
+        "JIRA_API_TOKEN": "your-api-token"
       }
     }
   }
@@ -98,6 +107,13 @@ HTTP/REST API requests (5 tools)
 - **Methods**: rest_get, rest_post, rest_put, rest_patch, rest_delete
 - **Features**: Automatic auth headers, custom headers, query params
 - **Note**: Optional REST_API_AUTH_TOKEN environment variable
+
+### 🎫 Jira MCP
+Jira issue tracking and project management (12 tools)
+- **Issues**: get, search, create, update, delete, transition, watchers, link
+- **Comments**: add, list
+- **Projects & Users**: project_list, user_search
+- **Note**: Requires JIRA_BASE_URL, JIRA_EMAIL, and JIRA_API_TOKEN environment variables
 
 ## Environment Variables
 
