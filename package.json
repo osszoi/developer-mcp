@@ -4,6 +4,7 @@
   "private": true,
   "description": "Developer MCP Tools Collection",
   "author": "Eduardo Lorenzo <contact@edjl.dev>",
+  "repository": "https://github.com/osszoi/developer-mcp",
   "workspaces": [
     "docker-mcp",
     "git-mcp",
