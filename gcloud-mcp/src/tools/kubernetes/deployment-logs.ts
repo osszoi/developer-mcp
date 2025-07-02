@@ -3,7 +3,7 @@ import { ToolDefinition } from '../../types.js';
 import { executeGCloudCommand } from '../../utils/gcloud.js';
 
 const inputSchema = z.object({
-  deployment: z.string().describe('Deployment name (e.g., content-api, backend-api)'),
+  deployment: z.string().describe('Deployment name (e.g., example-app, backend-service)'),
   cluster: z.string().describe('Name of the GKE cluster'),
   namespace: z.string().optional().default('default').describe('Kubernetes namespace'),
   lines: z.number().optional().default(20).describe('Number of recent log lines per pod'),

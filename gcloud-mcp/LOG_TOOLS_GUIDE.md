@@ -10,8 +10,8 @@ The simplest way to get logs from a pod.
 **Example:**
 ```
 {
-  "pod": "content-api",
-  "cluster": "dev-cluster",
+  "pod": "example-app",
+  "cluster": "my-cluster",
   "namespace": "default",
   "lines": 50
 }
@@ -29,8 +29,8 @@ Gets aggregated logs from all pods in a deployment.
 **Example:**
 ```
 {
-  "deployment": "content-api",
-  "cluster": "dev-cluster", 
+  "deployment": "example-app",
+  "cluster": "my-cluster", 
   "namespace": "default",
   "lines": 20,
   "since": "30m",
@@ -50,8 +50,8 @@ Most flexible tool that tries kubectl first, then falls back to Cloud Logging.
 **Example:**
 ```
 {
-  "workload": "content-api",
-  "cluster": "dev-cluster",
+  "workload": "example-app",
+  "cluster": "my-cluster",
   "namespace": "default",
   "type": "deployment",
   "lines": 100,
@@ -68,27 +68,27 @@ Most flexible tool that tries kubectl first, then falls back to Cloud Logging.
 
 ## Quick Examples
 
-### Get recent errors from content-api:
+### Get recent errors from example-app:
 ```
 Use gcloud_logs_simple with:
-- pod: "content-api"
-- cluster: "dev-cluster"  
+- pod: "example-app"
+- cluster: "my-cluster"  
 - grep: "ERROR"
 ```
 
 ### See what's happening in a deployment:
 ```
 Use gcloud_deployment_logs with:
-- deployment: "backend-api"
-- cluster: "dev-cluster"
+- deployment: "backend-service"
+- cluster: "my-cluster"
 - since: "10m"
 ```
 
 ### Follow logs in real-time (requires kubectl):
 ```
 Use gcloud_workload_logs with:
-- workload: "async-control"
-- cluster: "dev-cluster"
+- workload: "worker-service"
+- cluster: "my-cluster"
 - follow: true
 ```
 

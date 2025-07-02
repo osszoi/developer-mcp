@@ -85,25 +85,25 @@ Add the server to your `~/.cursor/mcp.json`:
 
 ### Kubernetes Workloads
 
-**Q: When was the last content-api workload deployed in dev-cluster?**
+**Q: When was the last example-app workload deployed in my-cluster?**
 ```
 1. gcloud_clusters_list
-2. gcloud_workload_history cluster: "dev-cluster", deployment: "content-api"
+2. gcloud_workload_history cluster: "my-cluster", deployment: "example-app"
 ```
 
 ### Artifact Registry
 
-**Q: What is the latest version of llm-querier artifact?**
+**Q: What is the latest version of my-service artifact?**
 ```
 1. gcloud_artifacts_repositories_list
-2. gcloud_artifact_versions repository: "my-repo", location: "us-central1", package: "llm-querier"
+2. gcloud_artifact_versions repository: "my-repo", location: "us-central1", package: "my-service"
 ```
 
 ### Cloud Logging
 
-**Q: What are the latest error logs from content-api in dev-cluster?**
+**Q: What are the latest error logs from example-app in my-cluster?**
 ```
-gcloud_logs_read resource: "k8s_container", severity: "ERROR", filter: "resource.labels.container_name='content-api' AND resource.labels.cluster_name='dev-cluster'"
+gcloud_logs_read resource: "k8s_container", severity: "ERROR", filter: "resource.labels.container_name='example-app' AND resource.labels.cluster_name='my-cluster'"
 ```
 
 ### Cloud Storage
