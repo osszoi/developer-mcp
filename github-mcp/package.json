@@ -1,6 +1,6 @@
 {
   "name": "@edjl/github-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for GitHub operations using GitHub CLI",
   "main": "build/index.js",
   "type": "module",
@@ -14,7 +14,12 @@
     "start": "node build/index.js",
     "dev": "tsc --watch"
   },
-  "keywords": ["mcp", "github", "gh", "cli"],
+  "keywords": [
+    "mcp",
+    "github",
+    "gh",
+    "cli"
+  ],
   "author": "Eduardo Lorenzo <contact@edjl.dev>",
   "license": "MIT",
   "dependencies": {
