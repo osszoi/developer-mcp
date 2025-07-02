@@ -1,5 +1,5 @@
 {
-  "name": "gcloud-mcp",
+  "name": "@edjl/gcloud-mcp",
   "version": "1.0.0",
   "description": "Google Cloud Platform tools for MCP (Model Context Protocol)",
   "type": "module",
@@ -23,7 +23,7 @@
     "kubernetes",
     "gke"
   ],
-  "author": "",
+  "author": "Eduardo Lorenzo <contact@edjl.dev>",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.13.2",
@@ -32,5 +32,11 @@
   "devDependencies": {
     "@types/node": "^20.11.0",
     "typescript": "^5.3.3"
+  },
+  "files": [
+    "build/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

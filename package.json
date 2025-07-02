@@ -1,0 +1,22 @@
+{
+  "name": "@edjl/mcp-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Developer MCP Tools Collection",
+  "author": "Eduardo Lorenzo <contact@edjl.dev>",
+  "workspaces": [
+    "docker-mcp",
+    "git-mcp",
+    "mysql-mcp",
+    "gcloud-mcp",
+    "github-mcp",
+    "rest-mcp"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "publish-all": "npm run publish-local --workspaces"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "docker-mcp",
+  "name": "@edjl/docker-mcp",
   "version": "1.0.0",
   "description": "Docker tools for MCP (Model Context Protocol)",
   "type": "module",
@@ -20,7 +20,7 @@
     "docker",
     "containers"
   ],
-  "author": "",
+  "author": "Eduardo Lorenzo <contact@edjl.dev>",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.13.2",
@@ -29,5 +29,11 @@
   "devDependencies": {
     "@types/node": "^20.11.0",
     "typescript": "^5.3.3"
+  },
+  "files": [
+    "build/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }
