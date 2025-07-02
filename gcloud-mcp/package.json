@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "postbuild": "chmod +x build/index.js",
     "start": "node build/index.js",
     "dev": "tsc --watch",
     "clean": "rm -rf build",

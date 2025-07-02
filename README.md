@@ -77,10 +77,13 @@ Database operations (6 tools)
 - **Note**: Requires environment variables for connection
 
 ### ☁️ GCloud MCP
-Google Cloud Platform tools (18 tools)
-- **Kubernetes**: clusters_list, workloads_list, deployments_restart, logs
-- **Storage**: buckets_list, objects_list, object_read
-- **Artifact Registry**: repositories_list, images_list
+Google Cloud Platform tools (32 tools)
+- **Kubernetes**: clusters_list, workloads_list, deployment logs, workload logs
+- **Storage**: buckets_list, objects_list, object_read, metadata
+- **IAM & Security**: roles, policies, service accounts, keys
+- **Secrets Manager**: list, versions, get (with warnings)
+- **Cloud SQL**: instances, databases, backups
+- **Pub/Sub**: topics, subscriptions, describe
 - **Note**: Requires gcloud CLI installed and authenticated
 
 ### 🐙 GitHub MCP

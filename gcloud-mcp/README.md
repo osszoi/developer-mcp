@@ -6,7 +6,7 @@ A comprehensive Model Context Protocol (MCP) server for Google Cloud Platform to
 
 This MCP server provides tools for interacting with various GCP services:
 
-### Currently Implemented (Phase 1)
+### Currently Implemented
 
 #### Kubernetes/GKE
 - `gcloud_clusters_list` - List all GKE clusters
@@ -14,6 +14,9 @@ This MCP server provides tools for interacting with various GCP services:
 - `gcloud_workloads_list` - List deployments, pods, and services
 - `gcloud_workload_describe` - Get details about specific workloads
 - `gcloud_workload_history` - View deployment history and rollout status
+- `gcloud_logs_simple` - Quick pod logs retrieval
+- `gcloud_deployment_logs` - Aggregated deployment logs
+- `gcloud_workload_logs` - Advanced workload logs with kubectl support
 
 #### Artifact Registry
 - `gcloud_artifacts_repositories_list` - List artifact repositories
@@ -33,6 +36,28 @@ This MCP server provides tools for interacting with various GCP services:
 - `gcloud_logs_tail` - Stream logs in real-time
 - `gcloud_logs_query` - Execute advanced log queries
 - `gcloud_logs_sinks_list` - List log routing destinations
+
+#### IAM & Security
+- `gcloud_iam_roles_list` - List IAM roles
+- `gcloud_iam_policy_get` - Get IAM policy for a resource
+- `gcloud_service_accounts_list` - List service accounts
+- `gcloud_service_account_keys_list` - List service account keys
+
+#### Secrets Manager
+- `gcloud_secrets_list` - List secrets
+- `gcloud_secret_versions_list` - List secret versions
+- `gcloud_secret_get` - Get secret value (with security warnings)
+
+#### Cloud SQL
+- `gcloud_sql_instances_list` - List Cloud SQL instances
+- `gcloud_sql_instance_describe` - Get instance details
+- `gcloud_sql_databases_list` - List databases
+- `gcloud_sql_backups_list` - List backups
+
+#### Pub/Sub
+- `gcloud_pubsub_topics_list` - List topics
+- `gcloud_pubsub_subscriptions_list` - List subscriptions
+- `gcloud_pubsub_topic_describe` - Get topic details
 
 ## Prerequisites
 

@@ -31,15 +31,15 @@
 ## Phase 2: Essential Services (Priority: MEDIUM)
 
 ### 5. IAM & Security
-- [ ] `gcloud_iam_roles_list` - List IAM roles
-- [ ] `gcloud_iam_policy_get` - Get IAM policy for a resource
-- [ ] `gcloud_service_accounts_list` - List service accounts
-- [ ] `gcloud_service_account_keys_list` - List service account keys
+- [x] `gcloud_iam_roles_list` - List IAM roles
+- [x] `gcloud_iam_policy_get` - Get IAM policy for a resource
+- [x] `gcloud_service_accounts_list` - List service accounts
+- [x] `gcloud_service_account_keys_list` - List service account keys
 
 ### 6. Secrets Manager
-- [ ] `gcloud_secrets_list` - List secrets
-- [ ] `gcloud_secret_versions_list` - List secret versions
-- [ ] `gcloud_secret_get` - Get secret value (with proper security warnings)
+- [x] `gcloud_secrets_list` - List secrets
+- [x] `gcloud_secret_versions_list` - List secret versions
+- [x] `gcloud_secret_get` - Get secret value (with proper security warnings)
 
 ### 7. Cloud Run
 - [ ] `gcloud_run_services_list` - List Cloud Run services
@@ -56,15 +56,15 @@
 ## Phase 3: Additional Services (Priority: LOW)
 
 ### 9. Cloud SQL
-- [ ] `gcloud_sql_instances_list` - List Cloud SQL instances
-- [ ] `gcloud_sql_instance_describe` - Get instance details
-- [ ] `gcloud_sql_databases_list` - List databases
-- [ ] `gcloud_sql_backups_list` - List backups
+- [x] `gcloud_sql_instances_list` - List Cloud SQL instances
+- [x] `gcloud_sql_instance_describe` - Get instance details
+- [x] `gcloud_sql_databases_list` - List databases
+- [x] `gcloud_sql_backups_list` - List backups
 
 ### 10. Pub/Sub
-- [ ] `gcloud_pubsub_topics_list` - List topics
-- [ ] `gcloud_pubsub_subscriptions_list` - List subscriptions
-- [ ] `gcloud_pubsub_topic_describe` - Get topic details
+- [x] `gcloud_pubsub_topics_list` - List topics
+- [x] `gcloud_pubsub_subscriptions_list` - List subscriptions
+- [x] `gcloud_pubsub_topic_describe` - Get topic details
 
 ### 11. Cloud Functions
 - [ ] `gcloud_functions_list` - List functions
