@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "npm run build --workspaces",
-    "publish-all": "npm run publish-local --workspaces"
+    "publish-all": "npm publish --workspaces --access public"
   },
   "devDependencies": {
     "typescript": "^5.0.0"

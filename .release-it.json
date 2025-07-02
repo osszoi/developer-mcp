@@ -1,0 +1,20 @@
+{
+  "git": {
+    "commitMessage": "release ${version} [skip ci]",
+    "tagName": "v${version}",
+    "push": true
+  },
+  "npm": {
+    "publish": false
+  },
+  "github": {
+    "release": true,
+    "releaseName": "v${version}"
+  },
+  "plugins": {},
+  "hooks": {
+    "before:init": "npm run build",
+    "after:bump": "npm version ${version} --workspaces --no-git-tag-version",
+    "after:release": "npm publish --workspaces --access public"
+  }
+}
