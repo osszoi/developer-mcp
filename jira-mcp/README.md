@@ -4,8 +4,14 @@ A Model Context Protocol (MCP) server that provides tools to interact with Jira 
 
 ## Installation
 
+### Option A: Global Installation
 ```bash
 npm install -g @edjl/jira-mcp
+```
+
+### Option B: Use with npx (no installation required)
+```bash
+npx -y @edjl/jira-mcp
 ```
 
 ## Configuration
@@ -43,11 +49,27 @@ Set the following environment variables:
 
 Add to your Cursor settings:
 
+**For global installation:**
 ```json
 {
   "jira": {
     "command": "jira-mcp",
     "args": [],
+    "env": {
+      "JIRA_BASE_URL": "https://your-domain.atlassian.net",
+      "JIRA_EMAIL": "your-email@example.com",
+      "JIRA_API_TOKEN": "your-api-token"
+    }
+  }
+}
+```
+
+**For npx usage:**
+```json
+{
+  "jira": {
+    "command": "npx",
+    "args": ["-y", "@edjl/jira-mcp"],
     "env": {
       "JIRA_BASE_URL": "https://your-domain.atlassian.net",
       "JIRA_EMAIL": "your-email@example.com",

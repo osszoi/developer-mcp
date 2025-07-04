@@ -5,13 +5,28 @@ A collection of Model Context Protocol (MCP) servers for developer tools.
 ## Quick Start
 
 ### 1. Install Tools
+
+#### Option A: Global Installation
 ```bash
 npm install -g @edjl/docker-mcp @edjl/git-mcp @edjl/mysql-mcp @edjl/gcloud-mcp @edjl/github-mcp @edjl/rest-mcp @edjl/jira-mcp
+```
+
+#### Option B: Use with npx (no installation required)
+You can use any of these tools directly with npx:
+```bash
+npx -y @edjl/docker-mcp
+npx -y @edjl/git-mcp
+npx -y @edjl/mysql-mcp
+npx -y @edjl/gcloud-mcp
+npx -y @edjl/github-mcp
+npx -y @edjl/rest-mcp
+npx -y @edjl/jira-mcp
 ```
 
 ### 2. Configure Your MCP Client
 Add to `~/.cursor/mcp.json` (or your MCP client's config file):
 
+**For global installation:**
 ```json
 {
   "mcpServers": {
@@ -51,6 +66,56 @@ Add to `~/.cursor/mcp.json` (or your MCP client's config file):
     "jira-mcp": {
       "command": "jira-mcp",
       "args": [],
+      "env": {
+        "JIRA_BASE_URL": "https://your-domain.atlassian.net",
+        "JIRA_EMAIL": "your-email@example.com",
+        "JIRA_API_TOKEN": "your-api-token"
+      }
+    }
+  }
+}
+```
+
+**For npx usage:**
+```json
+{
+  "mcpServers": {
+    "docker-mcp": {
+      "command": "npx",
+      "args": ["-y", "@edjl/docker-mcp"]
+    },
+    "git-mcp": {
+      "command": "npx",
+      "args": ["-y", "@edjl/git-mcp"]
+    },
+    "mysql-mcp": {
+      "command": "npx",
+      "args": ["-y", "@edjl/mysql-mcp"],
+      "env": {
+        "MYSQL_HOST": "localhost",
+        "MYSQL_PORT": "3306",
+        "MYSQL_USER": "your_user",
+        "MYSQL_PASSWORD": "your_password"
+      }
+    },
+    "gcloud-mcp": {
+      "command": "npx",
+      "args": ["-y", "@edjl/gcloud-mcp"]
+    },
+    "github-mcp": {
+      "command": "npx",
+      "args": ["-y", "@edjl/github-mcp"]
+    },
+    "rest-mcp": {
+      "command": "npx",
+      "args": ["-y", "@edjl/rest-mcp"],
+      "env": {
+        "REST_API_AUTH_TOKEN": "Bearer your_token_here"
+      }
+    },
+    "jira-mcp": {
+      "command": "npx",
+      "args": ["-y", "@edjl/jira-mcp"],
       "env": {
         "JIRA_BASE_URL": "https://your-domain.atlassian.net",
         "JIRA_EMAIL": "your-email@example.com",
