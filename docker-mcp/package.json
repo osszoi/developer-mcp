@@ -1,6 +1,6 @@
 {
   "name": "@edjl/docker-mcp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Docker tools for MCP (Model Context Protocol)",
   "type": "module",
   "main": "./build/index.js",
