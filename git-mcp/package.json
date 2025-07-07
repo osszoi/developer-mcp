@@ -1,6 +1,6 @@
 {
   "name": "@edjl/git-mcp",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Git tools for MCP (Model Context Protocol)",
   "type": "module",
   "main": "./build/index.js",
