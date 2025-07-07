@@ -7,12 +7,15 @@ A collection of Model Context Protocol (MCP) servers for developer tools.
 ### 1. Install Tools
 
 #### Option A: Global Installation
+
 ```bash
 npm install -g @edjl/docker-mcp @edjl/git-mcp @edjl/mysql-mcp @edjl/gcloud-mcp @edjl/github-mcp @edjl/rest-mcp @edjl/jira-mcp
 ```
 
 #### Option B: Use with npx (no installation required)
+
 You can use any of these tools directly with npx:
+
 ```bash
 npx -y @edjl/docker-mcp
 npx -y @edjl/git-mcp
@@ -24,134 +27,122 @@ npx -y @edjl/jira-mcp
 ```
 
 ### 2. Configure Your MCP Client
+
 Add to `~/.cursor/mcp.json` (or your MCP client's config file):
 
-**For global installation:**
+**For npx usage:**
+
 ```json
 {
-  "mcpServers": {
-    "docker-mcp": {
-      "command": "docker-mcp",
-      "args": []
-    },
-    "git-mcp": {
-      "command": "git-mcp",
-      "args": []
-    },
-    "mysql-mcp": {
-      "command": "mysql-mcp",
-      "args": [],
-      "env": {
-        "MYSQL_HOST": "localhost",
-        "MYSQL_PORT": "3306",
-        "MYSQL_USER": "your_user",
-        "MYSQL_PASSWORD": "your_password"
-      }
-    },
-    "gcloud-mcp": {
-      "command": "gcloud-mcp",
-      "args": []
-    },
-    "github-mcp": {
-      "command": "github-mcp",
-      "args": []
-    },
-    "rest-mcp": {
-      "command": "rest-mcp",
-      "args": [],
-      "env": {
-        "REST_API_AUTH_TOKEN": "Bearer your_token_here"
-      }
-    },
-    "jira-mcp": {
-      "command": "jira-mcp",
-      "args": [],
-      "env": {
-        "JIRA_BASE_URL": "https://your-domain.atlassian.net",
-        "JIRA_EMAIL": "your-email@example.com",
-        "JIRA_API_TOKEN": "your-api-token"
-      }
-    }
-  }
+	"mcpServers": {
+		"docker-mcp": {
+			"command": "npx",
+			"args": ["-y", "@edjl/docker-mcp"]
+		},
+		"git-mcp": {
+			"command": "npx",
+			"args": ["-y", "@edjl/git-mcp"]
+		},
+		"mysql-mcp": {
+			"command": "npx",
+			"args": ["-y", "@edjl/mysql-mcp"],
+			"env": {
+				"MYSQL_HOST": "localhost",
+				"MYSQL_PORT": "3306",
+				"MYSQL_USER": "your_user",
+				"MYSQL_PASSWORD": "your_password"
+			}
+		},
+		"gcloud-mcp": {
+			"command": "npx",
+			"args": ["-y", "@edjl/gcloud-mcp"]
+		},
+		"github-mcp": {
+			"command": "npx",
+			"args": ["-y", "@edjl/github-mcp"]
+		},
+		"rest-mcp": {
+			"command": "npx",
+			"args": ["-y", "@edjl/rest-mcp"],
+			"env": {
+				"REST_API_AUTH_TOKEN": "Bearer your_token_here"
+			}
+		},
+		"jira-mcp": {
+			"command": "npx",
+			"args": ["-y", "@edjl/jira-mcp"],
+			"env": {
+				"JIRA_BASE_URL": "https://your-domain.atlassian.net",
+				"JIRA_EMAIL": "your-email@example.com",
+				"JIRA_API_TOKEN": "your-api-token"
+			}
+		}
+	}
 }
 ```
 
-**For npx usage:**
-```json
-{
-  "mcpServers": {
-    "docker-mcp": {
-      "command": "npx",
-      "args": ["-y", "@edjl/docker-mcp"]
-    },
-    "git-mcp": {
-      "command": "npx",
-      "args": ["-y", "@edjl/git-mcp"]
-    },
-    "mysql-mcp": {
-      "command": "npx",
-      "args": ["-y", "@edjl/mysql-mcp"],
-      "env": {
-        "MYSQL_HOST": "localhost",
-        "MYSQL_PORT": "3306",
-        "MYSQL_USER": "your_user",
-        "MYSQL_PASSWORD": "your_password"
-      }
-    },
-    "gcloud-mcp": {
-      "command": "npx",
-      "args": ["-y", "@edjl/gcloud-mcp"]
-    },
-    "github-mcp": {
-      "command": "npx",
-      "args": ["-y", "@edjl/github-mcp"]
-    },
-    "rest-mcp": {
-      "command": "npx",
-      "args": ["-y", "@edjl/rest-mcp"],
-      "env": {
-        "REST_API_AUTH_TOKEN": "Bearer your_token_here"
-      }
-    },
-    "jira-mcp": {
-      "command": "npx",
-      "args": ["-y", "@edjl/jira-mcp"],
-      "env": {
-        "JIRA_BASE_URL": "https://your-domain.atlassian.net",
-        "JIRA_EMAIL": "your-email@example.com",
-        "JIRA_API_TOKEN": "your-api-token"
-      }
-    }
-  }
-}
+### Claude Code Configuration
+
+To add MCPs to Claude Code, use the following commands:
+
+```bash
+# Docker MCP
+claude mcp add docker-mcp -s user -- npx -y @edjl/docker-mcp
+
+# Git MCP
+claude mcp add git-mcp -s user -- npx -y @edjl/git-mcp
+
+# MySQL MCP
+claude mcp add mysql-mcp -s user --env MYSQL_HOST=localhost --env MYSQL_PORT=3306 --env MYSQL_USER=your_user --env MYSQL_PASSWORD=your_password -- npx -y @edjl/mysql-mcp
+
+# GCloud MCP
+claude mcp add gcloud-mcp -s user -- npx -y @edjl/gcloud-mcp
+
+# GitHub MCP
+claude mcp add github-mcp -s user -- npx -y @edjl/github-mcp
+
+# REST MCP
+claude mcp add rest-mcp -s user --env REST_API_AUTH_TOKEN="Bearer your_token_here" -- npx -y @edjl/rest-mcp
+
+# Jira MCP
+claude mcp add jira-mcp -s user --env JIRA_BASE_URL=https://your-domain.atlassian.net --env JIRA_EMAIL=your-email@example.com --env JIRA_API_TOKEN=your-api-token -- npx -y @edjl/jira-mcp
 ```
 
 ### 3. Restart Your MCP Client
+
 Restart Cursor (or your MCP client) to load the new tools.
 
 ## Available Tools
 
 ### 🐳 Docker MCP
+
 Container and image management (10 tools)
+
 - **Container**: ps, run, stop, remove, logs, exec
 - **Images**: images, pull, build
 - **Compose**: compose_up
 
-### 🔧 Git MCP  
+### 🔧 Git MCP
+
 Version control operations (17 tools)
+
 - **Repository**: status, diff, add, pull, push
 - **Commits**: log, show, commit
 - **Branches**: branch, checkout, merge, reset, revert
 - **Advanced**: stash, tag, remote, blame
 
 ### 🗄️ MySQL MCP
+
 Database operations (6 tools)
+
 - **Read**: query, list_databases, list_tables, describe_table
 - **Write**: update, delete
 - **Note**: Requires environment variables for connection
 
 ### ☁️ GCloud MCP
+
 Google Cloud Platform tools (32 tools)
+
 - **Kubernetes**: clusters_list, workloads_list, deployment logs, workload logs
 - **Storage**: buckets_list, objects_list, object_read, metadata
 - **IAM & Security**: roles, policies, service accounts, keys
@@ -161,20 +152,26 @@ Google Cloud Platform tools (32 tools)
 - **Note**: Requires gcloud CLI installed and authenticated
 
 ### 🐙 GitHub MCP
+
 GitHub operations via CLI (9 tools)
+
 - **Repositories**: repos_list, file_get
 - **Pull Requests**: pr_list, pr_view, pr_diff, pr_comments_list
 - **Reviews**: pr_suggest_change, pr_approve
 - **Note**: Requires GitHub CLI (gh) installed and authenticated
 
 ### 🌐 REST MCP
+
 HTTP/REST API requests (5 tools)
+
 - **Methods**: rest_get, rest_post, rest_put, rest_patch, rest_delete
 - **Features**: Automatic auth headers, custom headers, query params
 - **Note**: Optional REST_API_AUTH_TOKEN environment variable
 
 ### 🎫 Jira MCP
+
 Jira issue tracking and project management (12 tools)
+
 - **Issues**: get, search, create, update, delete, transition, watchers, link
 - **Comments**: add, list
 - **Projects & Users**: project_list, user_search
