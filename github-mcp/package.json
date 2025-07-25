@@ -1,6 +1,6 @@
 {
   "name": "@edjl/github-mcp",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "MCP server for GitHub operations using GitHub CLI",
   "main": "build/index.js",
   "type": "module",

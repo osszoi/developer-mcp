@@ -1,6 +1,6 @@
 {
   "name": "@edjl/mysql-mcp",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "MySQL read-only tools for MCP (Model Context Protocol)",
   "type": "module",
   "main": "./build/index.js",

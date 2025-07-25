@@ -1,6 +1,6 @@
 {
   "name": "@edjl/llm-mcp",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "MCP server for querying LLMs (OpenAI and Google Gemini) using llm-querier",
   "main": "build/index.js",
   "type": "module",

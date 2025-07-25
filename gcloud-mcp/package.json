@@ -1,6 +1,6 @@
 {
   "name": "@edjl/gcloud-mcp",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Google Cloud Platform tools for MCP (Model Context Protocol)",
   "type": "module",
   "main": "./build/index.js",
