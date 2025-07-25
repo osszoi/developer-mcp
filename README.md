@@ -9,7 +9,7 @@ A collection of Model Context Protocol (MCP) servers for developer tools.
 #### Option A: Global Installation
 
 ```bash
-npm install -g @edjl/docker-mcp @edjl/git-mcp @edjl/mysql-mcp @edjl/gcloud-mcp @edjl/github-mcp @edjl/rest-mcp @edjl/jira-mcp
+npm install -g @edjl/docker-mcp @edjl/git-mcp @edjl/mysql-mcp @edjl/gcloud-mcp @edjl/github-mcp @edjl/rest-mcp @edjl/jira-mcp @edjl/llm-mcp
 ```
 
 #### Option B: Use with npx (no installation required)
@@ -24,6 +24,7 @@ npx -y @edjl/gcloud-mcp
 npx -y @edjl/github-mcp
 npx -y @edjl/rest-mcp
 npx -y @edjl/jira-mcp
+npx -y @edjl/llm-mcp
 ```
 
 ### 2. Configure Your MCP Client
@@ -76,6 +77,16 @@ Add to `~/.cursor/mcp.json` (or your MCP client's config file):
 				"JIRA_EMAIL": "your-email@example.com",
 				"JIRA_API_TOKEN": "your-api-token"
 			}
+		},
+		"llm-mcp": {
+			"command": "npx",
+			"args": ["-y", "@edjl/llm-mcp"],
+			"env": {
+				"OPENAI_API_KEY": "your-openai-api-key",
+				"OPENAI_MODEL": "o3",
+				"GEMINI_API_KEY": "your-gemini-api-key",
+				"GEMINI_MODEL": "gemini-2.5-pro"
+			}
 		}
 	}
 }
@@ -106,6 +117,9 @@ claude mcp add rest-mcp -s user --env REST_API_AUTH_TOKEN="Bearer your_token_her
 
 # Jira MCP
 claude mcp add jira-mcp -s user --env JIRA_BASE_URL=https://your-domain.atlassian.net --env JIRA_EMAIL=your-email@example.com --env JIRA_API_TOKEN=your-api-token -- npx -y @edjl/jira-mcp
+
+# LLM MCP
+claude mcp add llm-mcp -s user --env OPENAI_API_KEY=your-openai-api-key --env OPENAI_MODEL=o3 --env GEMINI_API_KEY=your-gemini-api-key --env GEMINI_MODEL=gemini-2.5-pro -- npx -y @edjl/llm-mcp
 ```
 
 ### 3. Restart Your MCP Client
@@ -177,12 +191,22 @@ Jira issue tracking and project management (12 tools)
 - **Projects & Users**: project_list, user_search
 - **Note**: Requires JIRA_BASE_URL, JIRA_EMAIL, and JIRA_API_TOKEN environment variables
 
+### 🤖 LLM MCP
+
+Query Large Language Models (2 tools)
+
+- **Models**: ask_openai, ask_gemini
+- **Features**: Single queries with context, examples, images, video (Gemini), URL scraping, file downloads
+- **Note**: Requires API keys and model configuration for each provider
+
 ## Environment Variables
 
 Some MCPs require environment variables. Set them in the `env` section of each MCP configuration:
 
 - **MySQL MCP**: `MYSQL_HOST`, `MYSQL_PORT`, `MYSQL_USER`, `MYSQL_PASSWORD`
 - **REST MCP**: `REST_API_AUTH_TOKEN` (optional)
+- **Jira MCP**: `JIRA_BASE_URL`, `JIRA_EMAIL`, `JIRA_API_TOKEN`
+- **LLM MCP**: `OPENAI_API_KEY`, `OPENAI_MODEL`, `GEMINI_API_KEY`, `GEMINI_MODEL`
 
 ## Troubleshooting
 

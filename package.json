@@ -12,7 +12,8 @@
     "gcloud-mcp",
     "github-mcp",
     "rest-mcp",
-    "jira-mcp"
+    "jira-mcp",
+    "llm-mcp"
   ],
   "scripts": {
     "build": "npm run build --workspaces",

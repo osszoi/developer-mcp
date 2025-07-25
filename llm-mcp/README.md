@@ -20,11 +20,11 @@ Set the following environment variables:
 
 ### OpenAI Configuration
 - `OPENAI_API_KEY`: Your OpenAI API key (required for OpenAI tool)
-- `OPENAI_MODEL`: OpenAI model to use (default: `gpt-4`)
+- `OPENAI_MODEL`: OpenAI model to use (default: `o3`)
 
 ### Google Gemini Configuration
 - `GEMINI_API_KEY`: Your Google Gemini API key (required for Gemini tool)
-- `GEMINI_MODEL`: Gemini model to use (default: `gemini-pro`)
+- `GEMINI_MODEL`: Gemini model to use (default: `gemini-2.5-pro`)
 
 Note: You can configure just one provider or both. The server will only enable tools for configured providers.
 
@@ -65,9 +65,9 @@ Add to your Cursor settings:
       "command": "llm-mcp",
       "env": {
         "OPENAI_API_KEY": "your-openai-api-key",
-        "OPENAI_MODEL": "gpt-4",
+        "OPENAI_MODEL": "o3",
         "GEMINI_API_KEY": "your-gemini-api-key",
-        "GEMINI_MODEL": "gemini-pro"
+        "GEMINI_MODEL": "gemini-2.5-pro"
       }
     }
   }
@@ -83,9 +83,9 @@ Add to your Cursor settings:
       "args": ["-y", "@edjl/llm-mcp"],
       "env": {
         "OPENAI_API_KEY": "your-openai-api-key",
-        "OPENAI_MODEL": "gpt-4",
+        "OPENAI_MODEL": "o3",
         "GEMINI_API_KEY": "your-gemini-api-key",
-        "GEMINI_MODEL": "gemini-pro"
+        "GEMINI_MODEL": "gemini-2.5-pro"
       }
     }
   }
