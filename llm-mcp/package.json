@@ -1,0 +1,43 @@
+{
+  "name": "@edjl/llm-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for querying LLMs (OpenAI and Google Gemini) using llm-querier",
+  "main": "build/index.js",
+  "type": "module",
+  "bin": {
+    "llm-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf build",
+    "prebuild": "npm run clean",
+    "postbuild": "chmod +x build/index.js",
+    "start": "node build/index.js",
+    "dev": "tsc --watch"
+  },
+  "keywords": [
+    "mcp",
+    "llm",
+    "openai",
+    "gemini",
+    "ai",
+    "querier"
+  ],
+  "author": "Eduardo Lorenzo <contact@edjl.dev>",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "llm-querier": "^1.0.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  },
+  "files": [
+    "build/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
