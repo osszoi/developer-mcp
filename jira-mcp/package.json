@@ -1,6 +1,6 @@
 {
   "name": "@edjl/jira-mcp",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Jira tools for MCP (Model Context Protocol)",
   "type": "module",
   "main": "./build/index.js",
