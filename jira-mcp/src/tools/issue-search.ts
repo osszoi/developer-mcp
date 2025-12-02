@@ -48,7 +48,7 @@ const jiraIssueSearchTool: ToolDefinition = {
         requestBody.expand = params.expand;
       }
       
-      const response = await client.post('/rest/api/3/search', requestBody);
+      const response = await client.post('/rest/api/3/search/jql', requestBody);
       const { issues, total, startAt, maxResults } = response.data;
       
       if (!issues || issues.length === 0) {
